@@ -1,2 +1,2 @@
-# lzhgostudy.github.io
+# Code Kitchen
 My Blog
