@@ -1,0 +1,36 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Commit
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          
+      - name: Install pnpm
+        run: curl -f https://get.pnpm.io/v6.16.js | node - add --global pnpm@next-7
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build
+        run: pnpm docs:build
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: docs/.vitepress/dist
+          # cname: example.com # if wanna deploy to custom domain
