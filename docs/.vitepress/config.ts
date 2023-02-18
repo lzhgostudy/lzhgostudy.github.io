@@ -19,8 +19,12 @@ export default defineConfig({
         text: "PNPM",
         items: [
           {
-            text: "Migration from NPM",
-            link: "/pnpm/get-started"
+            text: "Migration from NPM to PNPM",
+            link: "/pnpm/migrating-from-npm-to-pnpm"
+          },
+          {
+            text: "Setup a monorepo with PNPM",
+            link: "/pnpm/setup-a-monorepo-with-pnpm"
           }
         ]
       }

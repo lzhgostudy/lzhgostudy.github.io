@@ -1,2 +1,2 @@
 # Code Kitchen
-My Blog
+[My Blog](https://lzhgostudy.github.io/)
