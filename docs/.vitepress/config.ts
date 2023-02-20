@@ -8,6 +8,7 @@ export default defineConfig({
   head: [
     ['link', { rel: 'shortcut icon', href: "/favicon.ico" }],
   ],
+  // lastUpdated: true,
   themeConfig: {
     logo: "/chef.png",
     socialLinks: [
@@ -19,12 +20,21 @@ export default defineConfig({
         text: "PNPM",
         items: [
           {
-            text: "Migration from NPM to PNPM",
+            text: "Migrating from NPM to PNPM",
             link: "/pnpm/migrating-from-npm-to-pnpm"
           },
           {
             text: "Setup a monorepo with PNPM",
             link: "/pnpm/setup-a-monorepo-with-pnpm"
+          }
+        ]
+      },
+      {
+        text: "Storybook",
+        items: [
+          {
+            text: "Storybook with pnpm-mono",
+            link: "/storybook/storybook-with-pnpm-mono"
           }
         ]
       }
