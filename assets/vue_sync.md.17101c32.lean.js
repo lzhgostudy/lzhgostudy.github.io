@@ -1,0 +1,1 @@
+import{_ as s,c as a,o as n,Q as l}from"./chunks/framework.2d37aa7a.js";const v=JSON.parse('{"title":".sync 使用指南","description":"","frontmatter":{},"headers":[],"relativePath":"vue/sync.md","filePath":"vue/sync.md"}'),p={name:"vue/sync.md"},o=l("",21),e=[o];function t(c,r,E,i,y,d){return n(),a("div",null,e)}const h=s(p,[["render",t]]);export{v as __pageData,h as default};
