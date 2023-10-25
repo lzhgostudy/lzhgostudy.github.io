@@ -1,4 +1,4 @@
-# Storybook(v7) with PNPM-Mono
+# Storybook with PNPM-Mono
 
 ## Initialize a new Vue application
 

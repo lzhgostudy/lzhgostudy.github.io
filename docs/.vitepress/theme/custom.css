@@ -4,3 +4,18 @@
   --vp-home-hero-image-background-image: linear-gradient( -45deg, #ffc300 50%, #e71d36 50% );
   --vp-home-hero-image-filter: blur(72px);
 }
+
+.vp-doc table.el-table__body,
+.vp-doc table.el-table__header {
+  margin: 0;
+}
+
+.vp-doc table.el-table tr {
+  border-top: none;
+}
+
+.vp-doc ul.el-upload-list {
+  list-style: none;
+  margin-left: 0;
+  padding: 0;
+}
