@@ -10,12 +10,13 @@ hero:
   actions:
     - theme: brand
       text: Welcome
-      link: /vue/sync
-# features:
-#   - icon:
-#       src: /vue-logo.svg
-#     title: Vue
-#     details: 2/3
+      link: /vue/creating-an-app
+features:
+  - icon:
+      src: /vue-logo.svg
+    title: Vue
+    details: 2/3
+    link: /vue/creating-an-app
   # - icon:
   #     src: /element-plus-logo.png
   #   title: Element-plus

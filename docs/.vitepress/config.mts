@@ -20,15 +20,15 @@ export default defineConfig({
         text: "Vue",
         items: [
           {
-            text: "Directive 指令",
-            link: "/vue/directive"
-          },
-          {
             text: "创建 Vue 应用",
             link: "/vue/creating-an-app"
           },
           {
-            text: "API 管理层",
+            text: "Directive 指令",
+            link: "/vue/directive"
+          },
+          {
+            text: "在 Vue.js 中管理 API 层",
             link: "/vue/managing-api-layers",
           },
           {
@@ -38,6 +38,10 @@ export default defineConfig({
           {
             text: ".sync",
             link: "/vue/sync"
+          },
+          {
+            text: "避免 API 重复请求",
+            link: "/vue/avoid-duplicate-request",
           }
         ]
       },

@@ -1,10 +1,10 @@
-# Managing API layers in Vue.js
+# 在 Vue.js 中管理 API 层
 
-## Motivation
+## 动机
 
-Almost every Single-Page-App at some point needs to get some data from the backend. Sometimes there are several sources of data like REST APIs, Web Sockets etc. It's important to manage the API layer in the right way to make it simple and easy to use in any place of your application no matter if it's store, component or another type of source file.
+几乎每个单页应用程序在某些时候都需要从后端获取一些数据。有时有多个数据源，例如 REST API、Web Sockets 等。以正确的方式管理 API 层非常重要，这样可以使其在应用程序的任何位置简单易用，无论是存储、组件还是其他类型源文件的。
 
-## UI for example
+## 用户列表界面
 
 <script lang="ts" setup>
 import { computed, ref } from 'vue'
@@ -80,7 +80,8 @@ const tableData: User[] = [
 </el-table>
 <el-button class="mt-4" style="width: 100%; margin-top: 10px">Add Item</el-button>
 
-## Bad example
+## ❌ 错误示范
+
 ::: code-group
 ```vue [@/components/user/UserTable.vue]
 <script>
@@ -162,20 +163,20 @@ export default {
 ```
 :::
 
-**Performing API calls in the component is bad because:**
+**在组件中执行 API 调用是不好的，因为：**
 
-- You make your component large and filled with logic that has nothing to do with the component itself which violates SRP;
+- 你让你的组件代码变得很臃肿并且充满了与组件本身无关的逻辑，这违反了SRP；
 
-- Same API methods could be used in different components which causes code duplication and violates DRY;
+- 相同的 API 方法可以在不同的组件中使用，这会导致代码重复并违反 DRY；
 
-- You are importing dependencies globally and it violates the DI principle;
+- 您正在全局导入依赖项，这违反了 DI 原则；
 
-- Whenever API changes, you need to manually change every method that is needed to be modified.
+- 每当 API 发生变化时，您都需要手动更改每个需要修改的方法。
 
 
-## Good example
+## ✅ 正确示范
 
-To make things work better we need to slightly change our code and move all the API calls into a separate place.
+为了让事情更好地工作，我们需要稍微改变我们的代码并将所有 API 调用移到一个单独的位置。
 
 ::: code-group
 ```ts [@/components/user/user.api.ts]
@@ -213,12 +214,46 @@ export async function edit(userId: string, info: Partial<User>) {
 ```
 :::
 
-In this case:
+在这个实例中：
 
--  Have one single `AxiosInstance` that is configured to work with `/users` API branch and our code becomes modular;
+- 拥有一个`AxiosInstance`配置为与`/users`API 分支一起使用的单一代码，我们的代码将变得模块化；
 
-- Have all methods located in one place so it's easier to make changes and to reuse them in different components without duplicating code;
+- 将所有方法放在一处，以便更轻松地进行更改并在不同组件中重用它们，而无需重复代码；
 
-- Handle the successful request as well as request failure and make us able to work with both error and data object depending on request status;
+- 处理成功的请求以及请求失败，使我们能够根据请求状态处理错误和数据对象；
 
-- Provide a standardized response return type for each method so we can work with them
+- 为每个方法提供标准化的响应返回类型，以便我们可以使用它们
+
+## 基于 Class 封装
+
+::: code-group
+```ts [User.class.ts]
+export class User {
+  async list() {
+    const { data } = await axiosClient.get(`/list/${this.page}`);
+    return data;
+  }
+
+  async add(name: string, born: string) {
+    const { data } = await axiosClient.post(
+      "/create",
+      { name, born }
+    );
+    return data;
+  }
+
+  async detail(userId: string) {
+    const { data } = await axiosClient.get(`/${userId}`)
+    return data;
+  }
+
+  async delete(userId: string) {
+    await axiosClient.delete(`/${userId}`)
+  }
+
+  async edit(userId: string, info: Partial<User>) {
+    await axiosClient.put(`/${userId}`, info);
+  }
+}
+```
+:::

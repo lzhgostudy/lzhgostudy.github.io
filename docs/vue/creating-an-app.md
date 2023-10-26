@@ -1,8 +1,8 @@
-# Creating a Vue Application
+# 创建 Vue 应用程序
 
-## The application instance
+## 应用实例
 
-Every Vue application starts by creating a new application instance:
+每个 Vue 应用程序都首先创建一个新的应用程序实例：
 
 ::: code-group
 ```ts [Vue2]
@@ -22,11 +22,11 @@ const app = createApp({
 ```
 :::
 
-## The Root Component
+## 根组件
 
-Every app requires a "root component" that can contain other components as its children.
+每个应用程序都需要一个“根组件”，该组件可以包含其他组件作为其子组件。
 
-If we are using Single-File Components, we typically import the root component from another file:
+如果我们使用单文件组件，我们通常从另一个文件导入根组件：
 
 ::: code-group
 ```ts [Vue2]
@@ -48,9 +48,9 @@ const app = createApp(App)
 ```
 :::
 
-## Mounting the App
+## 安装应用程序
 
-An application instance won't render anything util its `.mount()` method is called. It expects a "container" argument, which can either be an actual DOM element or a selector string:
+应用程序实例在调用其方法之前不会呈现任何内容`.mount()`。它需要一个“容器”参数，该参数可以是实际的 DOM 元素或选择器字符串：
 
 ```html
 <div id="app"></div>
@@ -66,13 +66,13 @@ app.mount("#app")
 ```
 :::
 
-The content of the app's root component will be rendered inside the container element. The container element itself is not considered part of the app.
+应用程序根组件的内容将在容器元素内呈现。容器元素本身不被视为应用程序的一部分。
 
-The `mount` method should always be called after all app configuration and asset registrations are done. Also note that its return value, unlike the asset registration methods, is the root component instance instead of the application instance.
+`mount`应始终在完成所有应用程序配置和资产注册后调用该方法。另请注意，与资产注册方法不同，它的返回值是根组件实例而不是应用程序实例。
 
-## Multiple application instances
+## 多个应用程序实例
 
-You are not limited to a single application instance on the same page. The API allows multiple Vue applications to co-exist on the same page, each with its own scope for configuration and global assets:
+您不限于同一页面上的单个应用程序实例。该 API 允许多个 Vue 应用程序在同一页面上共存，每个应用程序都有自己的配置范围：
 
 ::: code-group
 ```ts [Vue2]
