@@ -46,6 +46,24 @@ export default defineConfig({
         ]
       },
       {
+        text: "Formily Vue",
+        items: [
+          {
+            text: "快速开始",
+            link: "/formily-vue/quick-start",
+          }
+        ]
+      },
+      {
+        text: "Chromatic",
+        items: [
+          {
+            text: "快照",
+            link: "/chromatic/snapshots"
+          }
+        ]
+      },
+      {
         text: "PNPM",
         items: [
           {
