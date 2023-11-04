@@ -55,6 +55,15 @@ export default defineConfig({
         ]
       },
       {
+        text: "Git",
+        items: [
+          {
+            text: "patch 补丁",
+            link: "/git/patch"
+          }
+        ]
+      },
+      {
         text: "Chromatic",
         items: [
           {
